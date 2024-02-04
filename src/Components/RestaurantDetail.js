@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import RestaurantMenu from "./RestaurantMenu";
+
 const RestaurantDetail = () => {
 
+    const [loading, setLoading] = useState(true);
     const [rest, setRest] = useState({});
+    const [categories, setCategories] = useState({});
 
     const params = useParams();
 
@@ -15,23 +19,43 @@ const RestaurantDetail = () => {
 
     useEffect(() => {
         fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=30.73390&lng=76.78890&restaurantId=${restaurantId}`)
-        .then((res) => res.json())
-        .then((data) => {
-            console.log(data)
-        })
-    },[restaurantId])
+            .then((res) => res.json())
+            .then((data) => {
+                setRest(data.data.cards[0]?.card?.card?.info);
+                setCategories(data.data.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
+                setLoading(false)
+            })
+    }, [restaurantId])
 
     return (
-        <div className="flex flex-wrap p-20">
-            <div className="w-full sm:w-1/2 md:w-1/4 lg:w-1/4 xl:w-1/4 mb-4">
+        <>
+            {
+                loading ? <h1>Loading...</h1> :
+                    <>
+                        <div className="flex mt-10 mb-10 px-20">
+                            <div className="w-80">
+                                <div className="mb-4">
+                                    <h1 className="text-2xl font-semibold">{rest.name}</h1>
+                                    <p className="text-xs">{rest.cuisines.map((cuisine) => cuisine).join(', ')}</p>
+                                    <p className="text-xs">{rest.areaName}, {rest.sla?.lastMileTravelString}</p>
+                                    <div className="mt-2 text-sm">
+                                        {rest?.expectationNotifiers[0]?.text}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                dgsgsd
-                gsdgdsg
+                        {
+                            categories.map((category, index) => (
+                                <RestaurantMenu key={index} category={category} />
+                            ))
+                        }
 
+                    </>
+            }
+        </>
+    )
 
-            </div>
-        </div>
-    );
 }
 
 export default RestaurantDetail;

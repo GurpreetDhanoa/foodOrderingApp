@@ -13,10 +13,10 @@ const Home = () => {
         .then((data) => {
             
             const rest = data.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-            console.log(rest);
             setRests(rest);
             setLoading(false)
         })
+        
     },[])
 
     return (
