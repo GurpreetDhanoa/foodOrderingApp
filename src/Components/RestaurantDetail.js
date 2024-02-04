@@ -38,9 +38,15 @@ const RestaurantDetail = () => {
                                     <h1 className="text-2xl font-semibold">{rest.name}</h1>
                                     <p className="text-xs">{rest.cuisines.map((cuisine) => cuisine).join(', ')}</p>
                                     <p className="text-xs">{rest.areaName}, {rest.sla?.lastMileTravelString}</p>
-                                    <div className="mt-2 text-sm">
-                                        {rest?.expectationNotifiers[0]?.text}
-                                    </div>
+                                    {
+                                        rest?.expectationNotifiers ?
+
+                                            <div className="mt-2 text-sm">
+                                                {rest?.expectationNotifiers[0]?.text}
+                                            </div>
+                                            : ""
+                                    }
+
                                 </div>
                             </div>
                         </div>

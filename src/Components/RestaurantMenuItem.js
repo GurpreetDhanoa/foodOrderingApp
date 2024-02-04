@@ -13,19 +13,19 @@ const RestaurantMenuItem = (item, itemIndex) => {
                     <div className="text-gray-700">₹{(item.item.defaultPrice) ? (item.item.defaultPrice / 100) : (item.item.price / 100)}</div>
                 </div>
 
-                <div className="items-center ">
+                <div className="items-center relative">
                     {
                         item.item?.imageId ?
                             <img
                                 src={itemBaseUrl + item.item.imageId}
                                 alt={item.item.name}
                                 className="w-full object-cover rounded mb-4"
-                                style={{ width: '120px', height: '100px' }}
+                                style={{ width: '160px', height: '100px' }}
                             /> :
                             ""
                     }
 
-                    <button className="bg-red-500 text-white py-1 px-2 rounded">Add to Cart</button>
+                    <button className="absolute bottom-0 left-1/2 transform -translate-x-1/2 bg-red-500 text-white text-xs py-2 px-4 rounded">Add</button>
                 </div>
 
 
