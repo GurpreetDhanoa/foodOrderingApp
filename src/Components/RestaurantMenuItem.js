@@ -14,12 +14,17 @@ const RestaurantMenuItem = (item, itemIndex) => {
                 </div>
 
                 <div className="items-center ">
-                    <img
-                        src={itemBaseUrl+item.item.imageId}
-                        alt={item.item.name}
-                        className="w-full object-cover rounded mb-4"
-                        style={{ width: '120px',height: '100px' }}
-                    />
+                    {
+                        item.item?.imageId ?
+                            <img
+                                src={itemBaseUrl + item.item.imageId}
+                                alt={item.item.name}
+                                className="w-full object-cover rounded mb-4"
+                                style={{ width: '120px', height: '100px' }}
+                            /> :
+                            ""
+                    }
+
                     <button className="bg-red-500 text-white py-1 px-2 rounded">Add to Cart</button>
                 </div>
 
