@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from "react";
 import RestaurantInfo from "../Components/RestaurantInfo";
+import ShimmerEffect from "../Components/ShimmerEffect";
 
 const Home = () => {
 
@@ -16,12 +17,12 @@ const Home = () => {
             setRests(rest);
             setLoading(false)
         })
-        
+
     },[])
 
     return (
         <>
-            { loading ? <h1>Loading...</h1> 
+            { loading ? <ShimmerEffect /> 
                 : 
 
                 <div className="flex flex-wrap p-20">

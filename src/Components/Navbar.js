@@ -11,7 +11,7 @@ function Navbar() {
 
                 <div className="flex justify-between items-center">
 
-                    <div className="text-white font-bold text-xl">Online Food Ordering</div>
+                    <div className="text-white font-bold text-xl">Food Ordering App</div>
 
                     <div className="hidden md:flex space-x-4">
 

@@ -14,7 +14,7 @@ const RestaurantMenu = (category, index) => {
 
                 <div
                     className="bg-gray-200 py-2 px-4 cursor-pointer"
-                    onClick={() => setActiveCategory(activeCategory === index ? null : index)}
+                    onClick={() => setActiveCategory((prevIndex) => (prevIndex === index ? null : index))}
                 >
                     {menu.title} ({menu.itemCards.length})
                 </div>

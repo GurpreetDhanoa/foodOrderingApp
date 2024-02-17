@@ -22,6 +22,7 @@ const RestaurantDetail = () => {
             .then((res) => res.json())
             .then((data) => {
                 setRest(data.data.cards[0]?.card?.card?.info);
+                console.log(data.data.cards[2])
                 setCategories(data.data.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
                 setLoading(false)
             })

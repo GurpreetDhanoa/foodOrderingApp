@@ -22,7 +22,7 @@ const RestaurantMenuItem = (item, itemIndex) => {
                                 className="w-full object-cover rounded mb-4"
                                 style={{ width: '160px', height: '100px' }}
                             /> :
-                            ""
+                           ""
                     }
 
                     <button className="absolute bottom-0 left-1/2 transform -translate-x-1/2 bg-red-500 text-white text-xs py-2 px-4 rounded">Add</button>
@@ -31,6 +31,7 @@ const RestaurantMenuItem = (item, itemIndex) => {
 
             </div>
 
+            <hr class="h-px my-4 bg-gray-200 border-0 light:bg-gray-700"></hr>
 
         </div>
     )
